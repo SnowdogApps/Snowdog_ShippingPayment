@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+  <modules>
+    <Snowdog_ShippingPayment>
+      <version>0.1.0</version>
+    </Snowdog_ShippingPayment>
+  </modules>
+  
+  <global>
+    <blocks>  
+      <checkout>
+        <rewrite>
+          <onepage_payment_methods>Snowdog_ShippingPayment_Block_Onepage_Payment_Methods</onepage_payment_methods>
+        </rewrite>
+        <rewrite>
+          <onepage_shipping_method_available>Snowdog_ShippingPayment_Block_Onepage_Shipping_Method_Available</onepage_shipping_method_available>
+        </rewrite>
+      </checkout>
+      <shippingpayment>
+			<class>Snowdog_ShippingPayment_Block</class>
+	  </shippingpayment>
+    </blocks>
+	
+	<models>
+		<shippingpayment>
+			<class>Snowdog_ShippingPayment_Model</class>
+			<resourceModel>shippingpayment_mysql4</resourceModel>
+		</shippingpayment>
+		
+        <shippingpayment_mysql4>
+	        <class>Snowdog_ShippingPayment_Model_Mysql4</class>
+	        <entities>
+	            <multipletablerates>
+	                <table>shipping_multipletablerates</table>
+	            </multipletablerates>
+	            <matrixrate>
+	            	<table>shipping_matrixrate</table>
+	            </matrixrate>
+	        </entities>
+        </shippingpayment_mysql4>		
+	</models>	
+	
+	<resources>
+		<shippingpayment_write>
+			<connection>
+				<use>core_write</use>
+			</connection>
+		</shippingpayment_write>
+		<shippingpayment_read>
+			<connection>
+				<use>core_read</use>
+			</connection>
+		</shippingpayment_read>
+		<shippingpayment_setup>
+			<connection>
+				<use>core_setup</use>
+			</connection> 
+			<setup>
+		        <module>Snowdog_ShippingPayment</module>
+		        <class>Snowdog_ShippingPayment_Model_Entity_Setup</class>
+		    </setup>
+		</shippingpayment_setup>          
+	</resources>
+	
+	<helpers>
+		<shippingpayment>
+			<class>Snowdog_ShippingPayment_Helper</class>
+		</shippingpayment>
+	</helpers>
+  </global>
+  
+  <adminhtml>
+       <translate>
+          <modules>
+              <Snowdog_ShippingPayment>
+                  <files>
+                      <default>Snowdog_ShippingPayment.csv</default>
+                  </files>
+              </Snowdog_ShippingPayment>
+          </modules>
+      </translate>
+	  <acl>
+	    <resources>
+	      <admin>
+	        <children>
+	          <system>
+	            <children>
+	              <config>
+	                <children>
+	                  <shippingpayment>
+	                    <title>Snowdog_ShippingPayment</title>                    
+	                  </shippingpayment>
+	                </children>
+	              </config>
+	            </children>
+	          </system>
+	        </children>
+	      </admin>
+	    </resources>
+	  </acl>
+  </adminhtml>
+  
+  <default>
+  	<shippingpayment>
+  		<restricted>
+  			<threshold>400</threshold>
+  		</restricted>
+  		<productshipment>
+  			<enabled>0</enabled>
+  		</productshipment>
+  		<tablerates>
+  			<enabled>0</enabled>
+  		</tablerates>
+  	</shippingpayment>  	
+  </default>
+</config>

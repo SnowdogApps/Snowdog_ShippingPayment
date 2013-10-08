@@ -1,0 +1,4 @@
+app/code/community/Snowdog/ShippingPayment	app/code/community/Snowdog/ShippingPayment
+app/etc/modules/Snowdog_ShippingPayment.xml	app/etc/modules/Snowdog_ShippingPayment.xml
+app/locale/pl_PL/Snowdog_ShippingPayment.csv	app/locale/pl_PL/Snowdog_ShippingPayment.csv
+app/design/frontend/default/default/template/checkout/onepage/payment/methods.phtml	app/design/frontend/default/default/template/checkout/onepage/payment/methods.phtml

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+  <tabs>
+      <snowdog translate="label">
+          <label>Snowdog Extensions</label>
+          <sort_order>400</sort_order>
+      </snowdog>
+  </tabs>
+  
+  
+  <sections>
+        <shippingpayment module="shippingpayment" translate="label">
+            <label>Shipment and payment settings</label>
+            <tab>snowdog</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>80</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>            		
+  				    <tablerates translate="label">
+						<label>Tablerates handling module</label>
+	                    <frontend_type>text</frontend_type>
+	                    <sort_order>5</sort_order>
+	                    <show_in_default>1</show_in_default>
+	                    <show_in_website>1</show_in_website>
+	                    <show_in_store>1</show_in_store>
+	                    <fields>
+	                    	<enabled translate="label">
+	                    		<label>Enabled</label>								
+								<frontend_type>select</frontend_type>
+								<source_model>adminhtml/system_config_source_yesno</source_model>
+								<sort_order>10</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>							
+								<show_in_store>1</show_in_store>	                    	
+	                    	</enabled>	
+	                    	<module translate="label">
+	                    		<label>Module</label>								
+								<frontend_type>select</frontend_type>
+								<source_model>shippingpayment/adminhtml_tablerateModules</source_model>
+								<sort_order>20</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>							
+								<show_in_store>1</show_in_store>	     
+								<depends>
+									<enabled>1</enabled>
+								</depends>               	
+	                    	</module>
+	                    </fields>
+	                </tablerates>	                    
+  				    <restricted translate="label">
+						<label>Shipment restrictions</label>
+	                    <frontend_type>text</frontend_type>
+	                    <sort_order>30</sort_order>
+	                    <show_in_default>1</show_in_default>
+	                    <show_in_website>1</show_in_website>
+	                    <show_in_store>1</show_in_store>
+	                    <fields>
+	                    	<enabled translate="label">
+	                    		<label>Enabled</label>								
+								<frontend_type>select</frontend_type>
+								<source_model>adminhtml/system_config_source_yesno</source_model>
+								<sort_order>10</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>							
+								<show_in_store>1</show_in_store>	                    	
+	                    	</enabled>
+	                    	<carriers translate="label">
+								<label>Shipment restrictions</label>
+								<comment>All selected methods of shipment will be disabled, if the value of an order will be higher than the specified threshold</comment>
+								<frontend_type>multiselect</frontend_type>
+								<source_model>shippingpayment/adminhtml_shipments</source_model>
+								<sort_order>20</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>							
+								<show_in_store>1</show_in_store>       
+								<depends>
+									<enabled>1</enabled>
+								</depends>   
+							</carriers>
+							<threshold translate="label">
+								<label>Shipment restrictions threshold</label>
+								<comment>Value of an order above which chosen payments are disabled</comment>
+								<frontend_type>text</frontend_type>								
+								<sort_order>30</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>							
+								<show_in_store>1</show_in_store>      
+								<validate>validate-not-negative-number</validate>
+								<depends>
+									<enabled>1</enabled>
+								</depends>       
+							</threshold>	        	                    
+	                    </fields>
+                    </restricted>	          	
+            		<shippingconditions translate="label">
+						<label>Payment conditions</label>
+	                    <frontend_type>text</frontend_type>
+	                    <sort_order>10</sort_order>
+	                    <show_in_default>1</show_in_default>
+	                    <show_in_website>1</show_in_website>
+	                    <show_in_store>1</show_in_store>
+	                    <fields>
+	                    	<enabled_payments translate="label">
+	                    		<label>Payment methods</label>
+	                    		<comment>For every shipment method select available payment methods</comment>								
+								<frontend_model>shippingpayment/adminhtml_shipmentConditions</frontend_model>
+								<backend_model>shippingpayment/shipmentConditions</backend_model>								
+								<sort_order>10</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>							
+								<show_in_store>1</show_in_store>	                    	
+	                    	</enabled_payments>
+	                    </fields>
+	                </shippingconditions>
+	                <productshipment translate="label">
+						<label>Product-Shipment affinity</label>
+	                    <frontend_type>text</frontend_type>
+	                    <sort_order>20</sort_order>
+	                    <show_in_default>1</show_in_default>
+	                    <show_in_website>1</show_in_website>
+	                    <show_in_store>1</show_in_store>
+	                    <fields>
+	                    	<enabled translate="label">
+	                    		<label>Enabled</label>								
+								<frontend_type>select</frontend_type>
+								<source_model>adminhtml/system_config_source_yesno</source_model>
+								<sort_order>10</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>							
+								<show_in_store>1</show_in_store>	                    	
+	                    	</enabled>
+	                    </fields>
+	                </productshipment>
+            </groups>
+        </shippingpayment>
+   </sections>
+</config>
