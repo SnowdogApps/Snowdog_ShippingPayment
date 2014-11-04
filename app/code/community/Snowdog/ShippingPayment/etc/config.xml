@@ -67,6 +67,17 @@
 			<class>Snowdog_ShippingPayment_Helper</class>
 		</shippingpayment>
 	</helpers>
+
+	<events>
+		<sales_order_save_before>
+			<observers>
+				<shippingpayment_verify_methods>
+					<class>shippingpayment/observer</class>
+					<method>verifyMethods</method>
+				</shippingpayment_verify_methods>
+			</observers>
+		</sales_order_save_before>
+	</events>
   </global>
   
   <adminhtml>
@@ -111,6 +122,9 @@
   		<tablerates>
   			<enabled>0</enabled>
   		</tablerates>
+		<shippingconditions>
+			<message>Przepraszamy, nie możesz złożyć zamówienia dla którego metoda płatności to "{payment}" a metoda wysyłki to "{shipping}".</message>
+		</shippingconditions>
   	</shippingpayment>  	
   </default>
 </config>

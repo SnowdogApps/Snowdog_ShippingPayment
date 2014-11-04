@@ -102,6 +102,15 @@
 	                    <show_in_website>1</show_in_website>
 	                    <show_in_store>1</show_in_store>
 	                    <fields>
+								  <message translate="label comment">
+										<label>Invalid message</label>
+										<comment>This message will be displayed when validation fails. Insert {payment} where payment title should be insereted. Insert {shipping} where shipping description should be inserted.</comment>
+										<frontend_type>text</frontend_type>
+										<sort_order>5</sort_order>
+										<show_in_default>1</show_in_default>
+										<show_in_website>1</show_in_website>
+										<show_in_store>1</show_in_store>
+								  </message>
 	                    	<enabled_payments translate="label">
 	                    		<label>Payment methods</label>
 	                    		<comment>For every shipment method select available payment methods</comment>								
